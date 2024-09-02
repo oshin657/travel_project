@@ -1,0 +1,45 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#greenbox{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: greenyellow;
+    margin-top: 100px;
+}
+
+#fill{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+
+#fill input{
+    width: 150px;
+}
+
+#search{
+    margin-left: 500px;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 155px;
+    height: 30px;
+    background-color: white;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 50px;
+    border: 1px solid blue;
+}
