@@ -10,6 +10,11 @@
     margin-right: auto;
 }
 
+.owl-carousel#intro-slider .owl-item img{
+    height: 400px;
+    object-fit: cover;
+}
+
 .img > img{
     width: 100%;
 }
