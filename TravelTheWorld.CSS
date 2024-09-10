@@ -60,6 +60,9 @@
     align-items: center;
 }
 
+
+
+
 #greenbox{
     position: relative;
     width: 100%;
@@ -331,6 +334,21 @@ phone
 @media (max-width:575px){
 
 } */
+
+@media (max-width: 414px) {
+    .owl-carousel#intro-slider .owl-item img {
+        height: 220px; 
+        object-fit: cover;
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    }
+
+    
+   
+}
+
+
+
 
 @media (max-width: 576px) {
     #welcome {
