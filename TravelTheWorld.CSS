@@ -103,141 +103,283 @@
     text-decoration: none;
 }
 
-#best{
+#best {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensure it wraps on small screens */
 }
 
-.city{
+.city {
+    cursor: pointer;
     position: relative;
     display: inline-block;
+    text-align: center;
+    overflow: hidden; /* Ensures content stays inside */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f8f9fa; /* Light background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Minimal shadow for a clean look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-.city img{
-    width: 250px;
+/* Before and after hover effects */
+.city::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15); /* Slight dark overlay */
+    opacity: 0; /* Invisible by default */
+    transition: opacity 0.3s ease;
 }
 
-.city h5{
+.city::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(255, 255, 255, 0.8); /* Light border effect */
+    opacity: 0; /* Invisible by default */
+    transition: opacity 0.3s ease;
+}
+
+.city:hover::before {
+    opacity: 1; /* Show the dark overlay on hover */
+}
+
+.city:hover::after {
+    opacity: 1; /* Show the light border effect on hover */
+}
+
+/* Image styles */
+.city img {
+    width: 250px; /* Keeping the original size */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.city:hover img {
+    transform: scale(1.05); /* Slight zoom-in effect on hover */
+}
+
+/* Heading styles */
+.city h5 {
     position: absolute;
     bottom: 0;
     left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Darker background for better contrast */
     color: white;
-    font-size:large;
+    font-size: large;
     font-weight: lighter;
     text-align: center;
-    width: 100%;
-    background: rgba(0,0,0,0.5);
-    padding: 5px;
-    margin-bottom: auto;
+    padding: 8px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px); /* Moves down initially */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade-in effect */
+}
+
+.city:hover h5 {
+    opacity: 1; /* Fully visible on hover */
+    transform: translateY(0); /* Moves into position */
 }
 
 
 
-.view{
+
+
+
+#package {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+#package h3 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+#wow {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.view {
     position: relative;
-    display: inline-block;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
-.detail{
-    position: absolute;
-    top: 30px;
-    font-size: x-large;
-    background-color: blue;
-    color: #fff;
-    border-radius: 15px 50px;
-    padding: 10px;
-    right: 0;
+.view:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-#wow{
-    display: flex;
-    justify-content: space-between;
-}
-
-.view > img{
-    width: 350px;
-}
-
-.place{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-}
-
-#package{
-    margin: 10px;
-}
-
-#package h5{
-    text-align: center;
-    padding-top: 3px;
-    margin-bottom: auto;
-}
-
-.view{
-position: relative;
-}
-
-.price-tag{
-    position: absolute;
-    top: 0;
-    left: -30px;
-}
-
-#search2 h4{
-    font-size: larger;
-    padding: 20px 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.destination{
-    display: flex;
-    justify-content: space-between;
-}
-
-.trending{
+/* Image and Price Tag */
+.package-img {
     position: relative;
-    display: inline-block;
 }
 
-.flag{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size:x-large;
+.package-img img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.package-img:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.price-tag {
     position: absolute;
-    top:20px;
+    top: 20px;
+    left: 20px;
+    background-color: #0066cc;
     color: #fff;
-    left: 35px;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: bold;
 }
 
-#destination2{
+/* Package Information Styling */
+.package-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.package-info h5 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.package-info p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.package-info a {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.package-info a:hover {
+    background-color: #004d99;
+}
+
+
+.trending-destinations {
+    text-align: center;
+    padding: 50px 20px;
+    background: #ffffff;
+    border-top: 5px solid #e0e0e0;
+    border-bottom: 5px solid #e0e0e0;
+}
+
+.trending-destinations h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Destination Cards Grid */
+.destination-cards {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.destination-card {
+    position: relative;
+    width: calc(30% - 20px); /* Three cards per row */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Destination Details */
+.destination-details {
+    padding: 20px;
+    text-align: left;
+    color: #444;
+}
+
+.destination-details h3 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    color: #222;
+}
+
+.destination-details p {
+    font-size: 1rem;
+    margin: 0;
+    color: #666;
+}
+
+/* Explore Button */
+.explore-btn {
+    display: inline-block;
     margin-top: 15px;
-}
-
-.trending2{
-    position: relative;
-    display: inline-block;
-}
-
-.flag2{
-    position: absolute;
-    top:15px;
-    left: 30px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
     color: #fff;
-    font-size: larger;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ff6b6b;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
+.explore-btn:hover {
+    background: #ff4949;
+    transform: translateY(-3px);
+}
 
 .item{
     position: relative;
@@ -382,83 +524,52 @@ phone
     }
 
     #best {
-        flex-wrap: wrap;
-        justify-content: space-around;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center-align cards */
     }
 
     .city {
-        width: 48%; 
-        margin-bottom: 10px;
-    }
-
-    .city img {
-        width: 100%;
+        width: 90%; /* Use most of the screen width */
+        margin-bottom: 20px; /* Space between stacked items */
     }
 
     .city h5 {
-        font-size: medium;
-        padding: 5px;
+        font-size: 1rem; /* Adjust text size */
     }
 
     #wow {
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-direction: column; /* Stack items vertically on small screens */
+        gap: 20px;
     }
 
     .view {
-        width: 48%; 
-        margin-bottom: 15px;
-    }
-
-    .view > img {
         width: 100%;
-    }
-
-    .detail {
-        font-size: large;
-        padding: 8px;
-    }
-
-    .place {
-        font-size: small;
-        padding: 5px;
     }
 
     .price-tag {
-        left: -25px;
-        transform: scale(0.8);
+        font-size: 16px;
+        padding: 8px 15px;
     }
 
-    .destination, #destination2 {
-        flex-direction: column;
-        align-items: center;
+    .package-info h5 {
+        font-size: 18px;
     }
 
-    .trending, .trending2 {
-        width: 100%;
-        margin-bottom: 20px;
+    .package-info p {
+        font-size: 14px;
     }
 
-    .trending img, .trending2 img {
-        width: 100%;
+    .package-info a {
+        font-size: 14px;
+        padding: 8px 15px;
     }
 
-    .flag, .flag2 {
-        top: 10px;
-        left: 10px;
-        display: flex;
-        
-        gap: 10px;
-        font-size: medium;
+    .destination-card {
+        width: 100%; /* One card per row for mobile */
     }
 
-    .flag img, .flag2 img {
-        width: 30px; 
-        height: auto;
-    }
-
-    #search2 h2, #search2 h4 {
-        text-align: start;
+    .destination-card img {
+        height: 150px; /* Adjust image height for smaller screens */
     }
 
     footer {
@@ -538,78 +649,19 @@ phone
       }
 
       #best {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px; 
-      }
-    
-      .city:nth-child(1),
-      .city:nth-child(2) {
-        grid-column: span 1; 
-      }
-    
-      .city:nth-child(3),
-      .city:nth-child(4) {
-        grid-column: span 1; 
-      }
-    
-      .city img {
-        width: 100%; 
-        max-width: 300px; 
-      }
-    
-      .city h5 {
-        font-size: medium; 
-        width: 300px;
-      }
-
-      #wow {
-        display: grid;
-        grid-template-columns: 1fr 1fr; 
-        gap: 20px; 
-        justify-content: center; 
-      }
-    
-      .view img {
-        width: 100%; 
-        max-width: 300px;
-      }
-    
-      .detail {
-        font-size: large; 
-        padding: 8px; 
-        margin-right: 38px;
-      }
-    
-      .place {
-        font-size: medium; 
-        padding: 5px; 
-        width: 300px;
-      }
-    
-      .price-tag {
-        left: -30px;
-      }
-
-      .destination, #destination2 {
-        flex-direction: column;
-        align-items: center;
+        gap: 15px; 
     }
 
-    .trending, .trending2 {
-        width: 100%;
-        margin-bottom: 20px;
+    .city {
+        width: 48%; 
     }
 
-    .trending img, .trending2 img {
-        width: 100%;
+    .view {
+        width: 45%; /* Two items per row on tablets */
     }
 
-    .flag, .flag2 {
-        left: 10px;
-        top: 10px;
-        font-size: medium;
-        width: 30px;
+    .destination-card {
+        width: calc(45% - 20px); /* Two cards per row for tablets */
     }
 
     #end {
